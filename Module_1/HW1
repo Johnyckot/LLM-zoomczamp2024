@@ -1,0 +1,85 @@
+
+Q1. Running Elastic
+Run Elastic Search 8.4.3, and get the cluster information. If you run it on localhost, this is how you do it:
+
+curl localhost:9200
+What's the version.build_hash value?
+A: "build_hash" : "42f05b9372a9a4a470db3b52817899b99a76ee73"
+
+
+########################################################
+
+Q2. Indexing the data
+Index the data in the same way as was shown in the course videos. Make the course field a keyword and the rest should be text.
+
+Don't forget to install the ElasticSearch client for Python:
+
+pip install elasticsearch
+Which function do you use for adding your data to elastic?
+
+A: index
+
+
+#################################################
+
+Q3. Searching
+Now let's search in our index.
+
+We will execute a query "How do I execute a command in a running docker container?".
+
+Use only question and text fields and give question a boost of 4, and use "type": "best_fields".
+
+What's the score for the top ranking result?
+
+94.05
+84.05
+74.05
+64.05
+Look at the _score field.
+
+ A: '_score': 84.050095
+
+#################################################
+
+
+Q4. Filtering
+Now let's only limit the questions to machine-learning-zoomcamp.
+
+Return 3 results. What's the 3rd question returned by the search engine?
+
+How do I debug a docker container?
+How do I copy files from a different folder into docker container’s working directory?
+How do Lambda container images work?
+How can I annotate a graph?
+
+A: How do I copy files from a different folder into docker container’s working directory?
+
+
+#################################################
+
+Q5. Building a prompt
+What's the length of the resulting prompt? (use the len function)
+
+A:1462
+
+#################################################
+
+Q6. Tokens
+
+Use the encode function. How many tokens does our prompt have?
+
+A: 322
+
+#################################################
+Bonus: generating the answer (ungraded)
+
+A:
+
+To execute a command in a running Docker container, you can use the `docker exec` command. Follow these steps:\n\n1. First, identify the container ID of the running container by using the `docker ps` command:\n   ```\n   docker ps\n   ```\n\n2. Then, use the `docker exec` command to execute your desired command inside the container. Here's how to start a bash shell, for example:\n   ```\n   docker exec -it <container-id> bash\n   ```\n\nReplace `<container-id>` with the actual ID of the container you obtained from the `docker ps` command. This method allows you to execute any command in the running container.
+
+
+#################################################
+
+Bonus: calculating the costs (ungraded)
+
+A: 4.5
